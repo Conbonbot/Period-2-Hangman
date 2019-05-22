@@ -123,6 +123,16 @@ public class Canvas
         repaint();
     }
 
+	public void hide(Shape s)
+    {
+        if(shapes.contains(s))
+        {
+            shapes.remove(s);
+        }
+        repaint();
+    }
+
+
     public void repaint()
     {
         if (frame == null) return;

@@ -1,51 +1,25 @@
 import pkg.*;
 import java.util.Arrays;
+import java.util.ArrayList;
 
-public class GameDriver
-{
- private GameState state; // The current state of the game
 
- public GameDriver(GameState initial)
- { state = initial; }
-
- /** Plays an entire game, as described in the problem description
-  */
- public void play()
- {
-	int round = 0;
-	while(!state.isGameOver())
-	{
-		Player p = state.getCurrentPlayer();
-		String move = p.getNextMove(state);
-		if(round<0)
-		{
-			
-		}
-		else if((round>0)&&(round<10))
-			System.out.println("Round " + round + "  " + p.getName() + ": " + move);
-			
-		else if (round>10)
-			System.out.println("Round " + round + " " + p.getName() + ": " + move);	
+public class Player /*implements InputControl, InputKeyControl*/
+{	
+	String name;
 	
-		state.makeMove(move);
-		round++;
-	}
+	public Player(String aName)
+	{name = aName;}
 	
-	System.out.print(state.toString());
-	// System.out.println();
-	// state.printBoard();
-
-	if(state.getWinner() == null)
-	{
-		System.out.print(state.getCurrentPlayer().getName()+" Drew or Lost");
-	}
 	
-	if(state.getWinner() != null)
+	public String getName()
+	{return name;}
+	
+	public String getNextMove(GameState state)
 	{
-		System.out.print(state.getWinner().getName() + " wins");
+		ArrayList<String> moves = state.getCurrentMoves();
+		int r = (int)(Math.random()*moves.size());
+		return moves.get(r);
 	}
-			
- }
 }
 
 // C:\Users\Nilesh\Desktop\Gamestate Knight Grpahics>java -cp .; starter

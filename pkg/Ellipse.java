@@ -108,6 +108,12 @@ public class Ellipse implements Shape
         filled = false;
         Canvas.getInstance().show(this);
     }
+	
+		public void undraw()
+    {
+        Canvas.getInstance().hide(this);
+    }
+
 
     /**
      * Fills this ellipse.
