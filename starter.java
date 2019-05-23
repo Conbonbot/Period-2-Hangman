@@ -2,23 +2,23 @@ import pkg.*;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-public class starter //implements InputKeyControl,InputControl
+public class starter implements InputKeyControl//,InputControl
 {
-		// static ConnectFour c4;
+		static Hangman a;
 		
         public static void main(String args[])
         {
-			// KeyController kC = new KeyController(Canvas.getInstance(),new starter());
+			KeyController kC = new KeyController(Canvas.getInstance(),new starter());
 			// MouseController mC = new MouseController(Canvas.getInstance(),new starter());
 
-			Hangman a = new Hangman();
-			a.toString();
+			a = new Hangman();
+			EasyReader r = new EasyReader();
 		}
 	
-		// public void keyPress(String s)
-		// {
-		
-		// }
+		public void keyPress(String s)
+		{
+			a.guessLetter(s);
+		}
 		
 		// public void onMouseClick(double x, double y)
 		// {
