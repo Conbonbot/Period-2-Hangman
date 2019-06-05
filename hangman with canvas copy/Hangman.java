@@ -49,8 +49,7 @@ public class Hangman extends Canvas
             //makes lines for each letter unless its a space
             if(!a.substring(b-1,b).equals(" "))
             {
-                under[count]= new Line(spacer, 500, spacer+50, 500);
-                under[count].draw();
+                g.drawLine(spacer, 500, spacer+50, 500);
                 spacer= spacer+ 80;
                 count++;
             }
@@ -76,9 +75,8 @@ public class Hangman extends Canvas
             
             if (index==-1)
             {
-                Text wrong= new Text(wrongX+40,wrongY, guess);
-                wrong.grow(15,20);
-                wrong.draw();
+                g.drawString(guess,wrongX+40,wrongY);
+                
                 wrongX=wrongX+30;
                 guessWrong(countwrong);
                 countwrong++;
@@ -88,9 +86,8 @@ public class Hangman extends Canvas
             while(index!=-1)
             {
                 //temp= a.substring(index);
-                Text right= new Text(under[index].getX()+20,under[index].getY()-50, a.substring(index, index+1));
-                right.grow(15,20);
-                right.draw();
+                g.drawString(a.substring(index, index+1),g.getX()+20,g.getY()-50);
+//                right.grow(15,20);
                 index= a.indexOf(guess.toUpperCase(), index+1);
                 }
             }
@@ -119,50 +116,39 @@ public class Hangman extends Canvas
         }
         if(num==1)
         {
-            Line body= new Line(200, 220, 200, 280);
-            body.draw();
+            g.drawLine(200, 220, 200, 280);
+            
         }
         if(num==3)
         {
-            Line arm1= new Line(200,250, 220, 230);
-            arm1.draw();
+            g.drawLine(200,250, 220, 230);
+            
         }
         if(num==4)
         {
-           Line arm2= new Line(200,250, 180, 230);
-            arm2.draw();
+           g.drawLine(200,250, 180, 230);
+            
         }
         if(num==5)
         {
-            Line leg1= new Line(200,280, 180, 310);
-            leg1.draw();
+            g.drawLine(200,280, 180, 310);
+            
         }
         if(num==6)
         {
-            Line leg2= new Line(200,280, 220, 310);
-            leg2.draw();
+            g.drawLine(200,280, 220, 310);
+            
         }
         
     }
     private void firstPage()
     {
-        Rectangle cgenerated= new Rectangle(80, 250, 250,100);
-        cgenerated.draw();
-        Rectangle buddy= new Rectangle(390, 250, 250,100);
-        buddy.draw();
-    }
-    public void onMouseClick(double xx, double yy)
-    {
+       g.drawRect(80, 250, 250,100);
        
-        if(80>xx && xx>330);
-        {
-            if(250<yy && yy<350)
-            {
-            System.out.print("it works");
-            }
-        }
+        g.drawRect(390, 250, 250,100);
         
     }
+ 
     public String toString()
     {
 
