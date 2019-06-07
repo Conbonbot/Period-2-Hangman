@@ -10,7 +10,7 @@ public class MouseController{
     public MouseController(Canvas c, InputControl iC){
         this.c = c;
         this.iC = iC;
-        // System.out.println("Mouse Started");
+        System.out.println("Mouse Started");
         handleClick();
     }
 
